@@ -3,8 +3,8 @@
 #include <ctype.h>
 #include <string.h>
 #include <pthread.h>
-
-void readppm(unsigned char *buffer, int *bufferlen, 
+//test
+void readppm(unsigned char *buffer, int *bufferlen,
              char *header, int *headerlen,
              unsigned *rows, unsigned *cols, unsigned *chans,
              char *file)
@@ -47,7 +47,7 @@ void readppm(unsigned char *buffer, int *bufferlen,
     do
     {
         if((nread=fread(buffer, 1, (col*row*channels), filep)) == 0)
-        { 
+        {
             if(feof(filep))
                 { printf("completed readppm\n"); break; }
             else
@@ -77,7 +77,7 @@ void writeppm(unsigned char *buffer, int bufferlen,
     do
     {
         if((nwritten=fwrite(header, 1, headerlen, filep)) == 0)
-        { 
+        {
             if(feof(filep))
                 { printf("completed writeppm header\n"); break; }
             else
@@ -94,7 +94,7 @@ void writeppm(unsigned char *buffer, int bufferlen,
     do
     {
         if((nwritten=fwrite(buffer, 1, bufferlen, filep)) == 0)
-        { 
+        {
             if(feof(filep))
                 { printf("completed writeppm\n"); break; }
             else
@@ -158,7 +158,7 @@ void main(int argc, char *argv[])
 {
   char header[512];
   int bufflen, hdrlen;
-  unsigned pix; 
+  unsigned pix;
   int i, j, k, frameidx;
 
   if(argc < 2) {printf("usage: brighten input.ppm\n"); exit(-1);}
